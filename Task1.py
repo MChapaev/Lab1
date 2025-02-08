@@ -23,6 +23,14 @@ def non_prime_divisors(n):
     return list
 
 
+def digits(n):
+    list = []
+    while n > 0:
+        list.append(n % 10)
+        n //= 10
+    return list
+
+
 def func1(n):
     summ = 0
     for i in non_prime_divisors(n):
@@ -32,10 +40,9 @@ def func1(n):
 
 def func2(n):
     amount = 0
-    while n > 0:
-        if n % 10 < 3:
+    for i in digits(n):
+        if i < 3:
             amount += 1
-        n //= 10
     return amount
 
 
