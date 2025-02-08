@@ -30,4 +30,13 @@ def func1(n):
     return summ
 
 
-print('Sum of non prime divisors: ', func1(int(input('Provide a number: '))))
+def func2(n):
+    amount = 0
+    while n > 0:
+        if n % 10 < 3:
+            amount += 1
+        n //= 10
+    return amount
+
+
+print('Amount of digits less than 3: ', func2(int(input('Provide a number: '))))
