@@ -38,7 +38,19 @@ def task7():
 
 # Task 8
 def task8():
-    print('Task 8')
+    number = ''
+    max_n = 0
+    for i in input('Provide a line: '):
+        if i.isdigit():
+            number += i
+        else:
+            if right_number(number):
+                if len(number) > 0 and int(number) > max_n:
+                    max_n = int(number)
+            number = ''
+    if len(number) > 0 and int(number) > max_n:
+        max_n = int(number)
+    print('Max number found: ', max_n)
 
 
 # Main
