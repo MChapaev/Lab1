@@ -1,5 +1,4 @@
 # Task 6
-
 def right_number(n):
     return len(n) > 0 and int(n) > 5
 
