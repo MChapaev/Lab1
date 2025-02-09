@@ -1,6 +1,39 @@
 # Task 11
+def char_position(c):
+    return ord(c) - ord('a')
+
+
+def frequency(s):
+    s = s.lower()
+    amount_max = 0
+    char_max = ''
+    for i in s:
+        amount = s.count(i)
+        if amount > amount_max:
+            amount_max = amount
+            char_max = i
+    if len(s) > 0:
+        return abs(amount_max - char_position(char_max))
+    return 0
+
+
+def frequency_sort(s):
+    return sorted(s, key=frequency)
+
+
+def read_multiline():
+    print('Provide lines (type \"stop\" to stop): ')
+    lines = []
+    while True:
+        line = input()
+        if line.lower() == 'stop':
+            return lines
+        lines.append(line)
+
+
 def task11():
-    print('task11')
+    print('Sorted by frequency difference: ',
+          ' '.join(frequency_sort(read_multiline())))
 
 
 # Task 12
