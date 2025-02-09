@@ -21,8 +21,20 @@ def task6():
 
 
 # Task 7
+def get_cyrillic_chars():
+    alphabet = []
+    for code_point in range(0x0410, 0x0450):
+        alphabet.append(chr(code_point))
+    return alphabet
+
+
 def task7():
-    print('Task 7')
+    chars = get_cyrillic_chars()
+    for i in input('Provide a line (in cyrillic): '):
+        if i in chars:
+            chars.remove(i)
+    print('Unused cyrillic letters in line: ')
+    print(''.join(chars))
 
 
 # Task 8
