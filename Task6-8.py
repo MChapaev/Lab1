@@ -1,6 +1,23 @@
 # Task 6
+
+def right_number(n):
+    return len(n) > 0 and int(n) > 5
+
+
 def task6():
-    print('Task 6')
+    number = ''
+    amount = 0
+    for i in input('Provide a line: '):
+        if i.isdigit():
+            number += i
+        else:
+            if right_number(number):
+                amount += 1
+            number = ''
+    # check last char
+    if right_number(number):
+        amount += 1
+    print(f'Amount of numbers bigger than 5 in line: {amount}')
 
 
 # Task 7
