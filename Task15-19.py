@@ -32,7 +32,9 @@ def task15():
 
 # Task 16
 def task16():
-    print('task16')
+    data = input('Provide an array: ').split(' ')
+    data = list(map(int, data))
+    print('Two max elements:', sorted(data)[len(data)-2::])
 
 
 # Task 17
