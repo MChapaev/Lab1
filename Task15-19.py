@@ -1,6 +1,33 @@
 # Task 15
+def index_min(arr):
+    i_min = 0
+    for i in range(1, len(arr)):
+        if arr[i] < arr[i_min]:
+            i_min = i
+    return i_min
+
+
+def index_max(arr):
+    i_max = 0
+    for i in range(1, len(arr)):
+        if int(arr[i]) > int(arr[i_max]):
+            i_max = i
+    return i_max
+
+
+def reverse_between_min_max(arr):
+    if not arr:
+        return arr
+    i_min = index_min(arr)
+    i_max = index_max(arr)
+    start, end = sorted([i_min, i_max])
+    arr[start + 1:end] = arr[start + 1:end][::-1]
+    return arr
+
+
 def task15():
-    print('task15')
+    data = input('Provide a line: ').split(' ')
+    print('Reversed elements between min and max elements: ', reverse_between_min_max(data))
 
 
 # Task 16
