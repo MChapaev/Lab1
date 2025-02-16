@@ -33,7 +33,7 @@ def read_multiline():
 
 def task11():
     print('Sorted by frequency difference: ',
-          ' '.join(frequency_sort(read_multiline())))
+          '\n'.join(frequency_sort(read_multiline())))
 
 
 # Task 12
