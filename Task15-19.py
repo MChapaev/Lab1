@@ -80,7 +80,18 @@ def task18():
 
 # Task 19
 def task19():
-    print('task19')
+    data = input('Provide an array: ').split(' ')
+    for i in data:
+        if not i.isdigit():
+            print(' Provide an array, that consists only of integer numbers.')
+            task19()
+            return
+    arr = []
+    for j in range(1, len(data)):
+        if data.count(data[j]) == 1:
+            if int(data[j]) % j == 0:
+                arr.append(data[j])
+    print('Numbers that dont repeat and divide by their index:', ' '.join(arr))
 
 
 # Main
