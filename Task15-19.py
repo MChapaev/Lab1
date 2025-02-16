@@ -56,8 +56,26 @@ def task17():
 
 
 # Task 18
+def most_frequent_element(input_list):
+    frequency = {}
+
+    for item in input_list:
+        if item in frequency:
+            frequency[item] += 1
+        else:
+            frequency[item] = 1
+
+    max_count = max(frequency.values())
+    result = []
+    for index, value in enumerate(input_list):
+        if frequency[value] == max_count:
+            result.append(index)
+    return result
+
+
 def task18():
-    print('task18')
+    data = input('Provide a line: ')
+    print('Indexes of most frequent element:', most_frequent_element(data))
 
 
 # Task 19
