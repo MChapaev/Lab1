@@ -89,8 +89,43 @@ def task12():
 
 
 # Task 13
+def max_ascii(s):
+    max_code = 0
+    for c in s:
+        max_code = max(max_code, ord(c))
+    return max_code
+
+
+def mirrored_diff(s):
+    n = len(s)
+    diffs = []
+    for i in range(n // 2):
+        diffs.append(abs(ord(s[i]) - ord(s[n - i - 1])))
+    return diffs
+
+
+def quadratic_deviation(s):
+    max_code = max_ascii(s)
+    diffs = mirrored_diff(s)
+
+    if not diffs:
+        return 0
+
+    squared_diffs = [(max_code - d) ** 2 for d in diffs]
+    return sum(squared_diffs) / len(squared_diffs)
+
+
+def deviation_sort(strings):
+    return sorted(strings, key=quadratic_deviation)
+
+
 def task13():
-    print('task11')
+    data = input('Provide a line: ').split(' ')
+    sorted_data = deviation_sort(data)
+    print('Sorted in order of increasing the square deviation\n'
+          'between the largest The ASCII character code of the string\n'
+          'and the difference in the ASCII codes of pairs of mirrored characters\n'
+          'of the string (relative to its middle):\n', ' '.join(sorted_data))
 
 
 # Task 14
