@@ -129,8 +129,29 @@ def task13():
 
 
 # Task 14
+def count_mirrored_triples(s):
+    n = len(s)
+    count = 0
+    for i in range(n - 2):
+        if s[i] == s[i + 2]:
+            count += 1
+    return count
+
+
+def average_mirrored_triples(s):
+    if len(s) < 3:
+        return 0
+    return count_mirrored_triples(s) / (len(s) - 2)
+
+
+def mirrored_triples_sort(strings):
+    return sorted(strings, key=average_mirrored_triples)
+
+
 def task14():
-    print('task11')
+    data = input('Provide a line: ').split(' ')
+    sorted_data = mirrored_triples_sort(data)
+    print('Sorted in order of increasing mirror triplets:\n', ' '.join(sorted_data))
 
 
 # Main
