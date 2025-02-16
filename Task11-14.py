@@ -37,8 +37,55 @@ def task11():
 
 
 # Task 12
+def extract_numbers(s):
+    nums = []
+    current_num = ''
+
+    for c in s:
+        if c.isdigit():
+            current_num += c
+        elif current_num:
+            nums.append(int(current_num))
+            current_num = ''
+    if current_num:
+        nums.append(int(current_num))
+    return nums
+
+
+def find_median(lst):
+    lst.sort()
+    n = len(lst)
+    if n == 0:
+        return None
+    if n % 2 == 1:
+        return lst[n // 2]
+    else:
+        return (lst[n // 2 - 1] + lst[n // 2]) / 2
+
+
+def median_sort(strings):
+    sorted_strings = []
+
+    while strings:
+        values = [(s, extract_numbers(s)) for s in strings]
+        medians = [(s, find_median(nums)) for s, nums in values if nums]
+
+        if not medians:
+            sorted_strings.extend(strings)
+            break
+
+        min_median_str, _ = min(medians, key=lambda x: x[1])
+
+        sorted_strings.append(min_median_str)
+        strings.remove(min_median_str)
+
+    return sorted_strings
+
+
 def task12():
-    print('task11')
+    data = input('Provide a line: ').split(' ')
+    sorted_data = median_sort(data)
+    print('Sorted in order of increasing the median value of the row selection: ', ' '.join(sorted_data))
 
 
 # Task 13
