@@ -38,8 +38,21 @@ def task16():
 
 
 # Task 17
+def max_odd_num(arr):
+    if not arr:
+        print('All elements in array are even. Cannot find max odd number')
+        return 0
+    max_num = max(arr)
+    if max_num % 2 == 0:
+        arr.remove(max_num)
+        max_num = max_odd_num(arr)
+    return max_num
+
+
 def task17():
-    print('task17')
+    data = input('Provide an array: ').split(' ')
+    data = list(map(int, data))
+    print('Max odd number:', max_odd_num(data))
 
 
 # Task 18
