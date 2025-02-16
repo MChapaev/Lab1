@@ -26,7 +26,7 @@ def reverse_between_min_max(arr):
 
 
 def task15():
-    data = input('Provide a line: ').split(' ')
+    data = input('Provide an array: ').split(' ')
     print('Reversed elements between min and max elements: ', reverse_between_min_max(data))
 
 
